@@ -46,6 +46,7 @@
 ;; ido mode
 (require 'ido)
 (setq ido-enable-flex-matching t)
+(setq ido-use-virtual-buffers t)
 (ido-mode t)
 
 
@@ -142,8 +143,8 @@
   ;; old M-x now:
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-
   ;;rainbow-delimiters
+  (require 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 
