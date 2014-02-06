@@ -50,16 +50,30 @@
 
 
 ;; default font
-(set-face-attribute 'default nil :height 130)
+(when (window-system)
+  (set-frame-font "Source Code Pro")
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 140)
+  (set-face-font 'default "Source Code Pro"))
+
+
+;; line numbers
+(line-number-mode 1)
+(global-linum-mode t)
 
 
 ;; indentation
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 
 
 ;; show paren mode
 (show-paren-mode t)
+
+
+;;uniquify
+(require 'uniquify)
 
 
 (add-hook 'after-init-hook 'my-after-init-hook)
@@ -118,7 +132,7 @@
   ;;sr-speedbar
   (require 'sr-speedbar)
   (global-set-key (kbd "C-p") 'sr-speedbar-toggle)
-  (speedbar-show-unknown-files t)
+
 
   ;;smex
   (global-set-key (kbd "M-x") 'smex)
@@ -144,12 +158,8 @@
 		       (let ((matching (matching-paren delimiter)))
 			 (and matching (char-syntax matching)))))))
     )
-
   ; (add-hook 'prog-mode-hook 'my-paredit-init)
   ; goodbye darkness my old friend
-
-
-
 ;;melpa packages required
 ;; emmet-mode
 ;; w3m
@@ -159,6 +169,8 @@
 ;; autopair
 ;; smex
 ;; sr-speedbar
+;; expand-region
+;; smart-forward
 )
 
 ;;personal key bindings
@@ -181,9 +193,3 @@
  '(speedbar-use-images nil)
  '(sr-speedbar-right-side nil)
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight medium :height 120 :width normal)))))
