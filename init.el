@@ -139,8 +139,13 @@
   ;;smex
   (global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  ;; This is your old M-x.
+  ;; old M-x now:
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
+  ;;rainbow-delimiters
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 
   ;;autopair
   (autopair-global-mode)
@@ -162,7 +167,7 @@
     )
   ; (add-hook 'prog-mode-hook 'my-paredit-init)
   ; goodbye darkness my old friend
-;;melpa packages required
+;;melpa packages required'
 ;; emmet-mode
 ;; w3m
 ;; web-beautify
@@ -173,6 +178,8 @@
 ;; sr-speedbar
 ;; expand-region
 ;; smart-forward
+;; flycheck
+;; rainbow-delimiters
 )
 
 ;;personal key bindings
