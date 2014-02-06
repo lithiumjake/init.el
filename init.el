@@ -77,6 +77,12 @@
 (require 'uniquify)
 
 
+;;truncate lines by default
+(set-default 'truncate-lines t)
+
+
+
+
 (add-hook 'after-init-hook 'my-after-init-hook)
 (defun my-after-init-hook ()
   ;; do things after package initialization
@@ -133,7 +139,7 @@
   ;;sr-speedbar
   (require 'sr-speedbar)
   (global-set-key (kbd "C-p") 'sr-speedbar-toggle)
-
+  (eval-after-load "speedbar" '(speedbar-add-supported-extension ".less"))
   ;;flycheck
   (global-flycheck-mode)
 
@@ -181,6 +187,7 @@
 ;; smart-forward
 ;; flycheck
 ;; rainbow-delimiters
+;; multi-eshell
 )
 
 ;;personal key bindings
