@@ -133,6 +133,8 @@
   (require 'sr-speedbar)
   (global-set-key (kbd "C-p") 'sr-speedbar-toggle)
 
+  ;;flycheck
+  (global-flycheck-mode)
 
   ;;smex
   (global-set-key (kbd "M-x") 'smex)
