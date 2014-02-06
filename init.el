@@ -81,8 +81,6 @@
 (set-default 'truncate-lines t)
 
 
-
-
 (add-hook 'after-init-hook 'my-after-init-hook)
 (defun my-after-init-hook ()
   ;; do things after package initialization
@@ -188,6 +186,7 @@
 ;; flycheck
 ;; rainbow-delimiters
 ;; multi-eshell
+;; less-css-mode
 )
 
 ;;personal key bindings
