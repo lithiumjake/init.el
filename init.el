@@ -138,6 +138,7 @@
   (require 'sr-speedbar)
   (global-set-key (kbd "C-p") 'sr-speedbar-toggle)
   (eval-after-load "speedbar" '(speedbar-add-supported-extension ".less"))
+  (eval-after-load "speedbar" '(speedbar-add-supported-extension ".json"))
   ;;flycheck
   (global-flycheck-mode)
 
@@ -187,6 +188,7 @@
 ;; rainbow-delimiters
 ;; multi-eshell
 ;; less-css-mode
+;; json-mode
 )
 
 ;;personal key bindings
