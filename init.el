@@ -9,6 +9,31 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+(package-initialize)
+
+(defun packages-install (packages)
+  (dolist (it packages)
+    (when (not (package-installed-p it))
+      (if (y-or-n-p (format "Package '%s' not found on system. Install?" it))
+          (package-install it))))
+  (delete-other-windows))
+
+(packages-install
+               '(emmet-mode
+		 w3m
+		 web-beautify
+		 dired-single
+		 autopair
+		 smex
+		 sr-speedbar
+		 expand-region
+		 smart-forward
+		 flycheck
+		 rainbow-delimiters
+		 multi-eshell
+		 less-css-mode
+                 yasnippet))
+
 
 ;;; backup/autosave
 (defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
@@ -52,9 +77,9 @@
 
 ;; default font
 (when (window-system)
-  (set-frame-font "Source Code Pro")
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 140)
-  (set-face-font 'default "Source Code Pro"))
+  (set-frame-font "Inconsolata")
+  (set-face-attribute 'default nil :font "Inconsolata" :height 160)
+  (set-face-font 'default "Inconsolata"))
 
 
 ;; line numbers
@@ -174,21 +199,7 @@
   ; (add-hook 'prog-mode-hook 'my-paredit-init)
   ; goodbye darkness my old friend
 ;;melpa packages required'
-;; emmet-mode
-;; w3m
-;; web-beautify
-;; yasnippet
-;; dired-single
-;; autopair
-;; smex
-;; sr-speedbar
-;; expand-region
-;; smart-forward
-;; flycheck
-;; rainbow-delimiters
-;; multi-eshell
-;; less-css-mode
-;; json-mode
+
 )
 
 ;;personal key bindings
