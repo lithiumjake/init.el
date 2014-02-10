@@ -32,6 +32,7 @@
 		 rainbow-delimiters
 		 multi-eshell
 		 less-css-mode
+                 nodejs-repl
                  yasnippet))
 
 
