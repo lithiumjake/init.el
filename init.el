@@ -108,6 +108,14 @@
 (set-default 'truncate-lines t)
 
 
+;;quicker confirmations
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
+;;will make the last line end in a carriage return.
+(setq require-final-newline t) 
+
+
 (add-hook 'after-init-hook 'my-after-init-hook)
 (defun my-after-init-hook ()
   ;; do things after package initialization
