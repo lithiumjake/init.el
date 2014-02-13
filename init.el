@@ -33,6 +33,7 @@
 		 multi-eshell
 		 less-css-mode
                  nodejs-repl
+                 tabbar
                  yasnippet))
 
 
@@ -178,6 +179,8 @@
   (require 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+  ;;tabbar mode
+  (tabbar-mode)
 
   ;;autopair
   (autopair-global-mode)
