@@ -4,6 +4,8 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (setq inhibit-startup-message t)
 
+;;make the status bar useful
+(setq-default frame-title-format "%b (%f)")
 
 (require 'package)
 (add-to-list 'package-archives
@@ -102,7 +104,8 @@
 
 ;;uniquify
 (require 'uniquify)
-
+(setq 
+  uniquify-buffer-name-style 'post-forward)
 
 ;;truncate lines by default
 (set-default 'truncate-lines t)
@@ -174,8 +177,10 @@
   (global-set-key (kbd "C-p") 'sr-speedbar-toggle)
   (eval-after-load "speedbar" '(speedbar-add-supported-extension ".less"))
   (eval-after-load "speedbar" '(speedbar-add-supported-extension ".json"))
+
   ;;flycheck
   (global-flycheck-mode)
+  (defvar flycheck-jshintrc ".jshintrc")
 
   ;;smex
   (global-set-key (kbd "M-x") 'smex)
