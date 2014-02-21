@@ -107,6 +107,7 @@
 (setq 
   uniquify-buffer-name-style 'post-forward)
 
+
 ;;truncate lines by default
 (set-default 'truncate-lines t)
 
@@ -195,6 +196,31 @@
   ;;tabbar mode
   (tabbar-mode)
 
+  (defun tabbar-buffer-groups ()
+    "Return the list of group names the current buffer belongs to.
+     This function is a custom function for tabbar-mode's tabbar-buffer-groups.
+     This function group all buffers into 3 groups:
+     Those Dired, those user buffer, and those emacs buffer.
+     Emacs buffer are those starting with “*”."
+  (list
+   (cond
+    ((string-equal "*" (substring (buffer-name) 0 1))
+     "Emacs Buffer"
+     )
+    ((eq major-mode 'dired-mode)
+     "Dired"
+     )
+    (t
+     "User Buffer"
+     )
+    ))) 
+
+  (setq tabbar-buffer-groups-function 'tabbar-buffer-groups)
+
+  (global-set-key [M-S-left] 'tabbar-backward)
+  (global-set-key [M-S-right] 'tabbar-forward)
+
+
   ;;autopair
   (autopair-global-mode)
   ;;smartparens deleted
@@ -215,7 +241,6 @@
     )
   ; (add-hook 'prog-mode-hook 'my-paredit-init)
   ; goodbye darkness my old friend
-;;melpa packages required'
 
 )
 
